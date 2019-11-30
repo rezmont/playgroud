@@ -11,6 +11,7 @@ type circle struct {
 	r float64
 }
 
+// define a type that contain some function. This is called parmetric polymorphism
 type shape interface {
 	area() float64
 }
