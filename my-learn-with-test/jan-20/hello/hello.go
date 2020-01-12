@@ -2,10 +2,23 @@ package main
 
 import "fmt"
 
-func Hello(p string) string {
-	return fmt.Sprintf("Hello %s", p)
+const helloEnglish = "Hello, %s"
+const helloSpanish = "Hola, %s"
+const world = "World"
+const spanish = "Spanish"
+
+func Hello(p, lang string) string {
+	helloTemplate := helloEnglish
+	if lang == spanish {
+		helloTemplate = helloSpanish
+	}
+
+	if p != "" {
+		return fmt.Sprintf(helloTemplate, p)
+	}
+	return fmt.Sprintf(helloTemplate, world)
 }
 
 func main() {
-	fmt.Println(Hello("world"))
+	fmt.Println(Hello("world", ""))
 }
